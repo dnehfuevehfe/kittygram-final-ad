@@ -89,7 +89,7 @@ export const CardPage = ({ data, setData, extraClass = "" }) => {
         <div className={styles.img_box}>
           <img
             className={styles.img}
-            src={data.image_url ?? defaultImg}
+            src={data.image ?? defaultImg}
             alt="Фото котика."
           />
         </div>

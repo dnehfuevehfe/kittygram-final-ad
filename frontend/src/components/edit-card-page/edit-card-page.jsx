@@ -125,7 +125,7 @@ export const EditCardPage = ({ data, setData, extraClass = "" }) => {
           <div className={styles.img_box}>
             <img
               className={styles.current_img}
-              src={card.image_url}
+              src={card.image}
               alt="Фото котика."
             />
             <ButtonSecondary
