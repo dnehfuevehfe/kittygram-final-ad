@@ -12,9 +12,15 @@ services:
   backend:
     build: ./backend/
     env_file: .env
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             mkdir -p /static/static &&
+             cp -r /app/collected_static/. /static/static/ &&
+             gunicorn --bind 0.0.0.0:9000 kittygram_backend.wsgi"
     volumes:
       - static:/static
-      - media:/media
+      - media:/app/media
     depends_on:
       - db_1
   frontend:
@@ -28,7 +34,7 @@ services:
     env_file: .env
     volumes:
       - static:/static
-      - media:/media
+      - media:/app/media
     ports:
       - 9000:80
     depends_on:
