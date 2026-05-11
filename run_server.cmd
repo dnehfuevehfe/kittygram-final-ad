@@ -27,10 +27,13 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo [1/4] Building and starting containers...
-docker compose up -d --build
+echo [1/4] Starting containers from local images...
+docker compose up -d --no-build
 if errorlevel 1 (
     echo [ERROR] docker compose up failed.
+    echo If local images are missing, run when Docker Hub is available:
+    echo docker compose build
+    echo Then run this script again.
     exit /b 1
 )
 

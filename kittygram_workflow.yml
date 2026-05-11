@@ -23,7 +23,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.9
+        python-version: '3.11'
 
     - name: Install dependencies
       run: |
@@ -60,7 +60,7 @@ jobs:
         with:
           context: ./backend/
           push: true
-          tags: oleessever/kittygram_backend:latest
+          tags: error501/kittygram_backend:latest
   frontend_tests:
     runs-on: ubuntu-latest
 
@@ -99,7 +99,7 @@ jobs:
         with:
           context: ./frontend/
           push: true
-          tags: oleessever/kittygram_frontend:latest
+          tags: error501/kittygram_frontend:latest
   build_gateway_and_push_to_docker_hub:
     name: Push gateway Docker image to DockerHub
     runs-on: ubuntu-latest
@@ -118,7 +118,7 @@ jobs:
         with:
           context: ./nginx/
           push: true
-          tags: oleessever/kittygram_gateway:latest
+          tags: error501/kittygram_gateway:latest
   deploy:
     runs-on: ubuntu-latest
     needs:

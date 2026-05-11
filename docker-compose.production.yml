@@ -10,7 +10,7 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
   backend:
-    image: oleessever/kittygram_backend
+    image: error501/kittygram_backend
     env_file: .env
     volumes:
       - static:/static/
@@ -18,13 +18,13 @@ services:
     depends_on:
       - db_1
   frontend:
-    image: oleessever/kittygram_frontend
+    image: error501/kittygram_frontend
     env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
   gateway:
-    image: oleessever/kittygram_gateway
+    image: error501/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80
